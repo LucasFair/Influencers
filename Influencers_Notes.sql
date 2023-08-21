@@ -34,7 +34,7 @@ ALTER TABLE SocialMediaPlatforms
 ALTER COLUMN averageUserAge decimal(4,1) NOT NULL;
 
 CREATE TABLE Brands (
-brandID tinyint NOT NULL PRIMARY,
+brandID tinyint NOT NULL PRIMARY KEY,
 name varchar(32) NOT NULL,
 category varchar(32) NOT NULL
 );
