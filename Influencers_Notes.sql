@@ -2,11 +2,10 @@ CREATE DATABASE influencersDB;
 USE influencersDB;
 
 CREATE TABLE Influencers (
-    InfluencerID tinyint,
+    InfluencerID tinyint NOT NULL PRIMARY KEY,
     name varchar(32) NOT NULL,
-    age tinyint,
-    instagramFollowers int,
-	PRIMARY KEY (InfluencerID)
+    age tinyint NOT NULL,
+    instagramFollowers int NOT NULL
 );
 SELECT *
 FROM Influencers;
@@ -17,11 +16,10 @@ VALUES (1, 'Anna', 24, 50000), (2, 'Bent', 22, 20000), (3, 'Caroline', 26, 80000
 (7, 'Grace', 29, 92000), (8, 'Henry', 31, 48000);
 
 CREATE TABLE SocialMediaPlatforms (
-platformID tinyint,
+platformID tinyint NOT NULL PRIMARY KEY,
 name varchar(32) NOT NULL,
-averageUserAge dec(3, 2),
-totalUsers int,
-PRIMARY KEY (platformID)
+averageUserAge dec(3, 2) NOT NULL,
+totalUsers int NOT NULL
 );
 SELECT *
 FROM SocialMediaPlatforms;
@@ -33,13 +31,12 @@ VALUES (1, 'Instagram', 24.5, 1000000), (2, 'TikTok', 18.5, 2000000),
 (7, 'Pinterest', 29.0, 600000), (8, 'LinkedIn', 34.0, 400000);
 
 ALTER TABLE SocialMediaPlatforms
-ALTER COLUMN averageUserAge decimal(4,1);
+ALTER COLUMN averageUserAge decimal(4,1) NOT NULL;
 
 CREATE TABLE Brands (
-brandID tinyint,
+brandID tinyint NOT NULL PRIMARY,
 name varchar(32) NOT NULL,
-category varchar(32) NOT NULL,
-PRIMARY KEY (brandID)
+category varchar(32) NOT NULL
 );
 
 INSERT INTO Brands (brandID, name, category)
@@ -51,13 +48,12 @@ SELECT *
 FROM Brands;
 
 CREATE TABLE Collaborations (
-collaborationID tinyint,
-influencerID tinyint, 
-brandID tinyint,
-platformID tinyint,
-duration smallint,
-payment decimal(6, 2),
-PRIMARY KEY (collaborationID)
+collaborationID tinyint NOT NULL PRIMARY KEY,
+influencerID tinyint NOT NULL, 
+brandID tinyint NOT NULL,
+platformID tinyint NOT NULL,
+duration smallint NOT NULL,
+payment decimal(6, 2) NOT NULL
 );
 
 INSERT INTO Collaborations (collaborationID, influencerID, brandID, platformID, duration, payment)
