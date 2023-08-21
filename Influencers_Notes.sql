@@ -56,7 +56,7 @@ influencerID tinyint,
 brandID tinyint,
 platformID tinyint,
 duration smallint,
-payment decimal(6, 2)
+payment decimal(6, 2),
 PRIMARY KEY (collaborationID)
 );
 
